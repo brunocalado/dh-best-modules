@@ -1,3 +1,7 @@
+# 0.0.4
+
+- Show changes for modules that need to be updated
+
 # 0.0.3
 
 - Prevent GitHub API rate limiting

@@ -54,6 +54,13 @@
       {{/unless}}
 
       {{#if this.filterUpdatesOnly}}
+        {{#unless this.isThirdParty}}
+          {{#unless this.isThirdPartyDH}}
+            <button type="button" class="dh-bm-changelog-btn" data-action="viewChangelog" data-repo="{{this.repo}}" data-module-title="{{this.title}}" data-tooltip="View changelog">
+              <i class="fa-solid fa-book"></i> Changelog
+            </button>
+          {{/unless}}
+        {{/unless}}
         <button type="button" class="dh-bm-dismiss-btn" data-action="dismissUpdate" data-module-id="{{this.id}}" data-version="{{this.latestVersion}}" data-tooltip="Ignore this update">
           <i class="fa-solid fa-times"></i> Ignore
         </button>
