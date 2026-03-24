@@ -1,9 +1,9 @@
 {
   "id": "dh-best-modules",
   "title": "👑 Best Modules for Daggerheart",
-  "version": "0.0.2",
+  "version": "0.0.3",
 
-  "description": "Recommended modules hub for Daggerheart. Checks for updates, shows install status, and keeps your module suite up to date.",
+  "description": "A personal selection of useful modules for DH. Helps players discover and manage a curated list of community tools, tracking updates and installation status in one place.",
 
   "compatibility": {
     "minimum": "13",

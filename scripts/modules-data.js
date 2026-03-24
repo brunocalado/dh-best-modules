@@ -256,17 +256,6 @@ export const MODULES = [
     category: CATEGORY.THIRD_PARTY_DH
   },
   {
-    id: "dice-so-nice",
-    title: "Dice So Nice!",
-    icon: "\u{1F3B2}",
-    description: "Renders every Foundry dice roll as a 3D animated die that physically tumbles across the screen before landing on its result. Supports hundreds of dice skin combinations, custom colors, and per-player preferences.",
-    repo: "riccisi/foundryvtt-dice-so-nice",
-    url: "https://gitlab.com/riccisi/foundryvtt-dice-so-nice",
-    manifest: "https://gitlab.com/riccisi/foundryvtt-dice-so-nice/-/raw/master/module.json",
-    useGitLabApi: true,
-    category: CATEGORY.THIRD_PARTY
-  },
-  {
     id: "dice-tray",
     title: "Dice Tray",
     icon: "\u{1FA84}",
@@ -277,7 +266,7 @@ export const MODULES = [
     category: CATEGORY.THIRD_PARTY
   },
   {
-    id: "ownership-viewer",
+    id: "permission_viewer",
     title: "Ownership Viewer",
     icon: "\u{1F441}",
     description: "Adds a small panel to the sidebar that shows which users have Owner, Observer, or Limited access to each document. Makes it easy to confirm at a glance that players can see exactly what they should — no more hunting through permission dialogs.",

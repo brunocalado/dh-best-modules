@@ -197,23 +197,15 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
       .filter((m) => m.category === CATEGORY.RECOMMENDED)
       .sort(sortByTitle);
 
-    // Third-party modules are shown in full view; also shown in filterUpdatesOnly mode when they
-    // have available updates — since they may be the reason the dashboard auto-opened on world load.
-    // Excluded only from the uninstalled-only view (showAll: false, filterUpdatesOnly: false).
-    const thirdPartyDH = (
-      this.showAll && !this.filterUpdatesOnly
-        ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY_DH)
-        : this.filterUpdatesOnly
-          ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY_DH && m.installed && m.hasUpdate)
-          : []
+    // Third-party DH and generic third-party modules are always shown in full view; excluded from the uninstalled/updates-only views
+    const thirdPartyDH = (this.showAll && !this.filterUpdatesOnly
+      ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY_DH)
+      : []
     ).sort(sortByTitle);
 
-    const thirdParty = (
-      this.showAll && !this.filterUpdatesOnly
-        ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY)
-        : this.filterUpdatesOnly
-          ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY && m.installed && m.hasUpdate)
-          : []
+    const thirdParty = (this.showAll && !this.filterUpdatesOnly
+      ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY)
+      : []
     ).sort(sortByTitle);
 
     // Add view flags to each module for template access
