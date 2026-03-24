@@ -66,7 +66,7 @@ function registerSettings() {
     hint: "View the status of all recommended Daggerheart modules, including versions and updates.",
     icon: "fa-solid fa-cubes",
     type: ModulesListApp,
-    restricted: false
+    restricted: true
   });
 }
 
@@ -134,6 +134,7 @@ async function checkOnWorldLoad() {
  * @param {HTMLElement} html - The rendered HTML element
  */
 function injectSettingsButton(app, html) {
+  if (!game.user.isGM) return;
   if (html.querySelector("#dh-bm-settings-btn")) return;
 
   const div = document.createElement("div");
@@ -167,6 +168,7 @@ Hooks.once("init", () => {
 });
 
 Hooks.once("ready", async () => {
+  if (!game.user.isGM) return;
   const isFirstRun = game.settings.get(MODULE_ID, "firstRun");
   if (isFirstRun) {
     await game.settings.set(MODULE_ID, "firstRun", false);

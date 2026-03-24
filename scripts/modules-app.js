@@ -234,11 +234,16 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
    */
   async _prepareContext(context) {
     const allStatuses = await ModulesListApp.gatherModuleStatuses();
+    // Read once so both the filtered list and updatesCount are consistent
+    const ignoredUpdates = game.settings.get(MODULE_ID, "ignoredUpdates")?.modules ?? {};
 
     let filtered;
     if (this.filterUpdatesOnly) {
-      // Show only installed modules with available updates
-      filtered = allStatuses.filter((m) => m.installed && m.hasUpdate);
+      // Show only installed modules with available updates that have not been dismissed
+      filtered = allStatuses.filter((m) => {
+        if (!m.installed || !m.hasUpdate) return false;
+        return !ignoredUpdates[`${m.id}@${m.latestVersion}`];
+      });
     } else if (this.showAll) {
       // Show all modules
       filtered = allStatuses;
@@ -291,7 +296,7 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
       totalCount: MODULES.length,
       installedCount: allStatuses.filter((m) => m.installed).length,
       activeCount: allStatuses.filter((m) => m.active).length,
-      updatesCount: allStatuses.filter((m) => m.hasUpdate).length,
+      updatesCount: allStatuses.filter((m) => m.hasUpdate && !ignoredUpdates[`${m.id}@${m.latestVersion}`]).length,
       missingCount: allStatuses.filter((m) => !m.installed).length,
       selfRepo: SELF_REPO,
       systemInstalledVersion,

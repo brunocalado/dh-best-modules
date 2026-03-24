@@ -1,3 +1,8 @@
+# 0.0.5
+
+- Templates will show to GM only 
+- Ignored updates will be Ignored
+
 # 0.0.4
 
 - Show changes for modules that need to be updated
