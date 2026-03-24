@@ -1,8 +1,14 @@
-# 👑 Recommended Modules for Daggerheart
+# 👑 Best Modules for Daggerheart
 
 > **One module to rule them all.**
 
 Install this and instantly know which modules will make your Daggerheart sessions on Foundry VTT faster, smoother, and more cinematic — no searching, no guesswork.
+
+---
+
+## About this repository
+
+This is a personal and independent collection of modules for Daggerheart. It includes modules I personally use, as well as several community-favorite tools. This is not an official list, but a curated selection of resources intended to help players find useful modules in one place.
 
 ---
 
@@ -27,12 +33,6 @@ Think of it as a personal assistant that keeps your Daggerheart toolkit organize
 You install this once. It saves you time.
 
 <p align="center"><img width="900" src="docs/preview.webp"></p>
-
----
-
-## About this repository
-
-This is a personal and independent collection of modules for Daggerheart. It includes modules I personally use, as well as several community-favorite tools. This is not an official list, but a curated selection of resources intended to help players find useful modules in one place.
 
 ---
 
