@@ -1,3 +1,8 @@
+# 0.0.3
+
+- Prevent GitHub API rate limiting
+- Fix permission_viewer and remove DSN
+
 # 0.0.2
 
 ## [Added]

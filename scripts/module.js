@@ -92,6 +92,9 @@ async function registerPartials() {
 async function checkOnWorldLoad() {
   if (!game.settings.get(MODULE_ID, "checkOnLoad")) return;
 
+  // gatherModuleStatuses populates the version cache for all modules.
+  // fetchLatestSystemVersion is called separately because the system is not in MODULES.
+  // Both results are cached, so the subsequent _prepareContext render makes zero extra API calls.
   const [statuses, systemLatestVersion] = await Promise.all([
     ModulesListApp.gatherModuleStatuses(),
     ModulesListApp.fetchLatestSystemVersion(DAGGERHEART_SYSTEM_REPO)

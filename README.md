@@ -145,7 +145,6 @@ General-purpose community modules that work well alongside any Daggerheart setup
 | Module | What It Does |
 |---|---|
 | 📷 **Chat Media** | Embed images, videos, and audio directly in Foundry chat messages |
-| 🎲 **Dice So Nice!** | 3D animated dice that physically roll across the screen before landing |
 | 🪄 **Dice Tray** | Clickable dice palette below the chat box — no commands required |
 | 👁️ **Ownership Viewer** | Shows at a glance which players can see which documents |
 | 🧙 **Tokenizer** | Build token images from portraits inside Foundry, no external editor needed |

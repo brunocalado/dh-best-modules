@@ -1,6 +1,41 @@
 import { MODULE_ID, MODULES, CATEGORY, SELF_REPO, DAGGERHEART_SYSTEM_REPO } from "./modules-data.js";
 
 /**
+ * In-memory cache for remote version lookups.
+ * Prevents redundant GitHub API calls within the same session and across multiple renders.
+ * Key: manifest URL or "owner/repo" path. Value: { version: string|null, fetchedAt: number }.
+ * @type {Map<string, {version: string|null, fetchedAt: number}>}
+ */
+const _versionCache = new Map();
+
+/** Cache TTL in milliseconds (10 minutes). */
+const VERSION_CACHE_TTL = 10 * 60 * 1000;
+
+/**
+ * Returns the cached version for a given key if it exists and is within TTL.
+ * @param {string} key - Manifest URL or repo path
+ * @returns {string|null|undefined} Cached version string or null (failed fetch), undefined on cache miss
+ */
+function _getCached(key) {
+  const entry = _versionCache.get(key);
+  if (!entry) return undefined;
+  if (Date.now() - entry.fetchedAt > VERSION_CACHE_TTL) {
+    _versionCache.delete(key);
+    return undefined;
+  }
+  return entry.version;
+}
+
+/**
+ * Stores a version result in the cache.
+ * @param {string} key - Manifest URL or repo path
+ * @param {string|null} version - Version string, or null if the fetch failed
+ */
+function _setCache(key, version) {
+  _versionCache.set(key, { version, fetchedAt: Date.now() });
+}
+
+/**
  * ApplicationV2 window that displays the status of all recommended Daggerheart modules.
  * Shows installed / active state, current version, and latest available version from GitHub.
  * Triggered automatically on world load (uninstalled-only view) or via settings button (full view).
@@ -59,16 +94,22 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
    * @returns {Promise<string|null>} The latest version string or null on failure
    */
   static async fetchLatestVersion(manifestUrl) {
+    const cached = _getCached(manifestUrl);
+    if (cached !== undefined) return cached;
     try {
       const response = await fetch(`${manifestUrl}?t=${Date.now()}`);
       if (!response.ok) {
         console.warn(`${MODULE_ID} | fetchLatestVersion: HTTP ${response.status} for ${manifestUrl}`);
+        _setCache(manifestUrl, null);
         return null;
       }
       const data = await response.json();
-      return data.version ?? null;
+      const version = data.version ?? null;
+      _setCache(manifestUrl, version);
+      return version;
     } catch (err) {
       console.warn(`${MODULE_ID} | Could not fetch latest version from: ${manifestUrl}`, err);
+      _setCache(manifestUrl, null);
       return null;
     }
   }
@@ -81,13 +122,21 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
    * @returns {Promise<string|null>} The latest version string (tag_name without leading "v"), or null on failure
    */
   static async fetchLatestSystemVersion(repo) {
+    const cached = _getCached(repo);
+    if (cached !== undefined) return cached;
     try {
       const response = await fetch(`https://api.github.com/repos/${repo}/releases/latest`);
-      if (!response.ok) return null;
+      if (!response.ok) {
+        _setCache(repo, null);
+        return null;
+      }
       const data = await response.json();
       // tag_name may or may not have a leading "v" — normalize it
-      return data.tag_name?.replace(/^v/, "") ?? null;
+      const version = data.tag_name?.replace(/^v/, "") ?? null;
+      _setCache(repo, version);
+      return version;
     } catch {
+      _setCache(repo, null);
       return null;
     }
   }
@@ -99,16 +148,27 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
    * @returns {Promise<string|null>} The latest version string (tag_name without leading "v"), or null on failure
    */
   static async fetchLatestVersionGitLab(repo) {
+    const cached = _getCached(repo);
+    if (cached !== undefined) return cached;
     try {
       const encoded = encodeURIComponent(repo);
       const response = await fetch(
         `https://gitlab.com/api/v4/projects/${encoded}/releases?per_page=1&order_by=created_at&sort=desc`
       );
-      if (!response.ok) return null;
+      if (!response.ok) {
+        _setCache(repo, null);
+        return null;
+      }
       const data = await response.json();
-      if (!Array.isArray(data) || data.length === 0) return null;
-      return data[0].tag_name?.replace(/^v/, "") ?? null;
+      if (!Array.isArray(data) || data.length === 0) {
+        _setCache(repo, null);
+        return null;
+      }
+      const version = data[0].tag_name?.replace(/^v/, "") ?? null;
+      _setCache(repo, version);
+      return version;
     } catch {
+      _setCache(repo, null);
       return null;
     }
   }
@@ -582,10 +642,12 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
   }
 
   /**
-   * Action handler: re-renders the application to refresh version data from GitHub.
+   * Action handler: clears the version cache and re-renders to fetch fresh data from GitHub.
+   * Invalidating the cache is required so that the render does not return stale cached values.
    * @returns {Promise<void>}
    */
   static async onRefreshVersions() {
+    _versionCache.clear();
     ui.notifications.info("Refreshing module versions...");
     const app = Object.values(foundry.applications.instances).find(
       (a) => a.id === "dh-best-modules-list"
