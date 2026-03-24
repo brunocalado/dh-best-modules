@@ -1,6 +1,12 @@
+# 0.0.6
+
+## [Fixed]
+
+- Third-party modules with pending updates now display in the updates-only dashboard view instead of showing an empty state
+
 # 0.0.5
 
-- Templates will show to GM only 
+- Templates will show to GM only
 - Ignored updates will be Ignored
 
 # 0.0.4

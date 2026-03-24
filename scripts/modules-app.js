@@ -262,15 +262,21 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
       .filter((m) => m.category === CATEGORY.RECOMMENDED)
       .sort(sortByTitle);
 
-    // Third-party DH and generic third-party modules are always shown in full view; excluded from the uninstalled/updates-only views
-    const thirdPartyDH = (this.showAll && !this.filterUpdatesOnly
-      ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY_DH)
-      : []
+    // Third-party DH and generic third-party modules are always shown in full view;
+    // in updates-only view, only those with pending updates are shown;
+    // excluded from the uninstalled-only view.
+    const thirdPartyDH = (this.filterUpdatesOnly
+      ? filtered.filter((m) => m.category === CATEGORY.THIRD_PARTY_DH)
+      : this.showAll
+        ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY_DH)
+        : []
     ).sort(sortByTitle);
 
-    const thirdParty = (this.showAll && !this.filterUpdatesOnly
-      ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY)
-      : []
+    const thirdParty = (this.filterUpdatesOnly
+      ? filtered.filter((m) => m.category === CATEGORY.THIRD_PARTY)
+      : this.showAll
+        ? allStatuses.filter((m) => m.category === CATEGORY.THIRD_PARTY)
+        : []
     ).sort(sortByTitle);
 
     // Add view flags to each module for template access
