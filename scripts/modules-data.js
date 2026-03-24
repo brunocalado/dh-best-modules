@@ -364,6 +364,26 @@ export const MODULES = [
     category: CATEGORY.THIRD_PARTY_DH
   },
   {
+    id: "daggerheart-plus",
+    title: "Daggerheart Plus",
+    icon: "\u{2795}",
+    description: "UI/UX improvements for the default Daggerheart system. Enhances character sheets and general interface elements to provide a more polished play experience.",
+    repo: "featureJosh/daggerheart-plus",
+    manifest: "https://github.com/featureJosh/daggerheart-plus/releases/latest/download/module.json",
+    useReleasesApi: true,
+    category: CATEGORY.THIRD_PARTY_DH
+  },
+  {
+    id: "daggerheart-sleek-ui",
+    title: "Daggerheart: Sleek UI",
+    icon: "\u{1F58C}",
+    description: "A visual overhaul for the Foundryborne Daggerheart character sheet. Redesigns the layout and styling of sheets for characters, adversaries, and companions into a cleaner, more ergonomic interface.",
+    repo: "pasoktcm/daggerheart-sleek-ui",
+    manifest: "https://github.com/pasoktcm/daggerheart-sleek-ui/releases/latest/download/module.json",
+    useReleasesApi: true,
+    category: CATEGORY.THIRD_PARTY_DH
+  },
+  {
     id: "timeline-builder",
     title: "Timeline Builder",
     icon: "\u{23F3}",
