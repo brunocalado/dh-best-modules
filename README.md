@@ -1,4 +1,4 @@
-# 👑 Best Modules for Daggerheart
+# 👑 Recommended Modules for Daggerheart
 
 > **One module to rule them all.**
 
@@ -27,6 +27,14 @@ Think of it as a personal assistant that keeps your Daggerheart toolkit organize
 You install this once. It saves you time.
 
 <p align="center"><img width="900" src="docs/preview.webp"></p>
+
+---
+
+## About this repository
+
+This is a curated collection of modules for DH. This repository serves as a resource hub, gathering personal recommendations, widely-used community tools, and popular modules selected for their utility and quality.
+
+The goal is to provide a comprehensive list for different playstyles. Inclusion in this list does not imply official endorsement, but rather a selection of resources found to be valuable by the maintainer and the broader community.
 
 ---
 
