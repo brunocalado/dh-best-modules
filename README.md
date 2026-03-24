@@ -32,9 +32,7 @@ You install this once. It saves you time.
 
 ## About this repository
 
-This is a curated collection of modules for DH. This repository serves as a resource hub, gathering personal recommendations, widely-used community tools, and popular modules selected for their utility and quality.
-
-The goal is to provide a comprehensive list for different playstyles. Inclusion in this list does not imply official endorsement, but rather a selection of resources found to be valuable by the maintainer and the broader community.
+This is a personal and independent collection of modules for Daggerheart. It includes modules I personally use, as well as several community-favorite tools. This is not an official list, but a curated selection of resources intended to help players find useful modules in one place.
 
 ---
 
