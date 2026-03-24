@@ -127,6 +127,8 @@ Community content built specifically for the Daggerheart system:
 | 🤖 **DH Motherboard** | Homebrew compendium for the Motherboard setting — frames, items, tables, and journals |
 | 🪄 **I Wish (Adventure)** | A complete adventure: a cursed merchant's desperate expedition into a deadly mountain |
 | 💣 **Suicide Squad (Adventure)** | A complete adventure: cursed criminals forced into an impossible mission in a land at war |
+| ✨ **Daggerheart Plus** | UI and UX enhancements specifically designed for Daggerheart gameplay — improved styling and usability |
+| 📋 **Daggerheart Sleek UI** | Alternative character sheet with improved layout, better resource management, and enhanced usability for players and GMs |
 
 ---
 
