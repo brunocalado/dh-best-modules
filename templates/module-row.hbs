@@ -1,0 +1,91 @@
+<li class="dh-bm-module {{#if this.hasUpdate}}has-update{{/if}} {{#unless this.installed}}not-installed{{/unless}}">
+
+  {{!-- Top row: icon, title, status, versions, actions --}}
+  <div class="dh-bm-row-top">
+    <div class="dh-bm-icon">{{this.icon}}</div>
+
+    <div class="dh-bm-title">
+      <a href="{{#if this.url}}{{this.url}}{{else}}https://github.com/{{this.repo}}{{/if}}" target="_blank" rel="noopener">
+        {{this.title}}
+      </a>
+    </div>
+
+    <div class="dh-bm-status">
+      {{#if this.installed}}
+        {{#if this.active}}
+          <span class="dh-bm-tag active" data-tooltip="Active"><i class="fa-solid fa-circle-check"></i> Active</span>
+        {{else}}
+          <span class="dh-bm-tag inactive" data-tooltip="Installed but inactive"><i class="fa-solid fa-circle-minus"></i> Inactive</span>
+        {{/if}}
+      {{else}}
+        <span class="dh-bm-tag missing" data-tooltip="Not installed"><i class="fa-solid fa-circle-xmark"></i> Not Installed</span>
+      {{/if}}
+    </div>
+
+    <div class="dh-bm-versions">
+      {{#if this.installed}}
+        <span class="dh-bm-version current" data-tooltip="Installed Version">v{{this.currentVersion}}</span>
+      {{/if}}
+      {{#if this.latestVersion}}
+        <span class="dh-bm-version latest {{#if this.hasUpdate}}outdated{{/if}}" data-tooltip="Latest Version">
+          {{#if this.hasUpdate}}<i class="fa-solid fa-arrow-up"></i>{{/if}}
+          v{{this.latestVersion}}
+        </span>
+      {{else}}
+        <span class="dh-bm-version unknown" data-tooltip="Could not fetch latest version">
+          <i class="fa-solid fa-question"></i>
+        </span>
+      {{/if}}
+    </div>
+
+    <div class="dh-bm-actions">
+      {{#if this.installed}}
+        {{#unless this.active}}
+          <button type="button" class="dh-bm-enable-btn" data-action="enableModule" data-module-id="{{this.id}}" data-tooltip="Click to activate this module">
+            <i class="fa-solid fa-power-off"></i> Click to Enable
+          </button>
+        {{/unless}}
+      {{/if}}
+
+      {{#unless this.installed}}
+        <button type="button" class="dh-bm-install-btn" data-action="installModule" data-manifest="{{this.manifest}}" data-tooltip="Get Install URL">
+          <i class="fa-solid fa-download"></i> Install
+        </button>
+      {{/unless}}
+
+      {{#if this.filterUpdatesOnly}}
+        <button type="button" class="dh-bm-dismiss-btn" data-action="dismissUpdate" data-module-id="{{this.id}}" data-version="{{this.latestVersion}}" data-tooltip="Ignore this update">
+          <i class="fa-solid fa-times"></i> Ignore
+        </button>
+        <button type="button" class="dh-bm-remind-btn" data-action="remindLater" data-module-id="{{this.id}}" data-version="{{this.latestVersion}}" data-tooltip="Show again next world load">
+          <i class="fa-solid fa-bell"></i> Remind Later
+        </button>
+      {{else}}
+        <button type="button" class="dh-bm-manifest-btn" data-action="installModule" data-manifest="{{this.manifest}}" data-tooltip="Get Install URL">
+          <i class="fa-solid fa-link"></i> Manifest
+        </button>
+
+        {{#unless this.isThirdParty}}
+          {{#unless this.isThirdPartyDH}}
+            <button type="button" class="dh-bm-changelog-btn" data-action="viewChangelog" data-repo="{{this.repo}}" data-module-title="{{this.title}}" data-tooltip="View changelog">
+              <i class="fa-solid fa-book"></i> Changelog
+            </button>
+          {{/unless}}
+        {{/unless}}
+
+        <button type="button" class="dh-bm-btn dh-bm-support-btn"
+          data-action="openSupport"
+          data-repo="{{this.repo}}"
+          data-url="{{#if this.url}}{{this.url}}{{else}}https://github.com/{{this.repo}}{{/if}}"
+          data-module-title="{{this.title}}"
+          data-tooltip="Report a bug with your system info pre-filled">
+          <i class="fa-solid fa-life-ring"></i> Support
+        </button>
+      {{/if}}
+    </div>
+  </div>
+
+  {{!-- Bottom row: description using full width --}}
+  <div class="dh-bm-description">{{this.description}}</div>
+
+</li>

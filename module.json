@@ -1,0 +1,49 @@
+{
+  "id": "dh-best-modules",
+  "title": "👑 Best Modules for Daggerheart",
+  "version": "0.0.1",
+
+  "description": "Recommended modules hub for Daggerheart. Checks for updates, shows install status, and keeps your module suite up to date.",
+
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "13"
+  },
+  "authors": [
+    {
+      "name": "Mestre Digital",
+      "flags": {}
+    }
+  ],
+
+  "relationships": {
+    "systems": [
+      {
+        "id": "daggerheart",
+        "type": "system",
+        "compatibility": {
+          "minimum": "1.9.0"
+        }
+      }
+    ],
+    "recommends": [
+      { "id": "daggerheart-advmanager", "type": "module" },
+      { "id": "daggerheart-distances", "type": "module" },
+      { "id": "daggerheart-fear-tracker", "type": "module" },
+      { "id": "dh-mystery-box", "type": "module" },
+      { "id": "daggerheart-quickactions", "type": "module" },
+      { "id": "daggerheart-quickrules", "type": "module" },
+      { "id": "daggerheart-store", "type": "module" },
+      { "id": "dh-tagteam", "type": "module" },
+      { "id": "dh-containers", "type": "module" }
+    ]
+  },
+
+  "esmodules": ["scripts/module.js"],
+  "styles": ["styles/style.css"],
+
+  "url": "https://github.com/brunocalado/dh-best-modules",
+  "manifest": "https://raw.githubusercontent.com/brunocalado/dh-best-modules/main/module.json",
+  "download": "https://codeload.github.com/brunocalado/dh-best-modules/zip/main"
+}

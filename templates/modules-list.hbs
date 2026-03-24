@@ -1,0 +1,173 @@
+<section class="dh-best-modules-container">
+
+  {{!-- Header summary bar --}}
+  <header class="dh-bm-header">
+
+    {{!-- Row 1: module stats + action buttons --}}
+    <div class="dh-bm-header-top">
+      {{#if filterUpdatesOnly}}
+        <div class="dh-bm-stats">
+          <span class="dh-bm-badge update" data-tooltip="Available Updates">
+            <i class="fa-solid fa-arrow-up"></i> {{updatesCount}} update(s) available
+          </span>
+        </div>
+      {{else if showAll}}
+        <div class="dh-bm-stats">
+          <span class="dh-bm-badge installed" data-tooltip="Installed">
+            <i class="fa-solid fa-download"></i> {{installedCount}} / {{totalCount}}
+          </span>
+          <span class="dh-bm-badge active" data-tooltip="Active">
+            <i class="fa-solid fa-circle-check"></i> {{activeCount}}
+          </span>
+          {{#if updatesCount}}
+            <span class="dh-bm-badge update" data-tooltip="Updates Available">
+              <i class="fa-solid fa-arrow-up"></i> {{updatesCount}} update(s) available
+            </span>
+          {{/if}}
+        </div>
+      {{else}}
+        <div class="dh-bm-stats">
+          <span class="dh-bm-badge missing">
+            <i class="fa-solid fa-circle-xmark"></i> {{missingCount}} module(s) not installed
+          </span>
+        </div>
+      {{/if}}
+
+      <div class="dh-bm-header-actions">
+        <button type="button" class="dh-bm-refresh" data-action="refreshVersions" data-tooltip="Refresh Versions">
+          <i class="fa-solid fa-arrows-rotate"></i>
+        </button>
+      </div>
+    </div>
+
+    {{!-- Row 2: dedicated Daggerheart system panel --}}
+    <div class="dh-bm-system-panel">
+      <span class="dh-bm-system-panel-label">
+        <i class="fa-solid fa-gamepad"></i> Daggerheart System
+      </span>
+      <div class="dh-bm-system-status">
+        {{#if systemHasUpdate}}
+          {{#unless systemUpdateIgnored}}
+            <span class="dh-bm-badge system-update" data-tooltip="A new Daggerheart system version is available">
+              <i class="fa-solid fa-triangle-exclamation"></i> v{{systemInstalledVersion}} → v{{systemLatestVersion}} available
+            </span>
+            <button type="button" class="dh-bm-system-ignore-btn" data-action="ignoreSystemUpdate"
+              data-version="{{systemLatestVersion}}"
+              data-tooltip="Dismiss this update — you won't be alerted again for v{{systemLatestVersion}}">
+              <i class="fa-solid fa-eye-slash"></i> Ignore
+            </button>
+          {{/unless}}
+          {{#if systemUpdateIgnored}}
+            <span class="dh-bm-badge system-unknown" data-tooltip="Update to v{{systemLatestVersion}} has been ignored">
+              <i class="fa-solid fa-eye-slash"></i> v{{systemInstalledVersion}} → v{{systemLatestVersion}} (ignored)
+            </span>
+          {{/if}}
+          {{!-- always visible when a system update exists --}}
+          <button type="button" class="dh-bm-system-changelog-btn" data-action="viewSystemChangelog"
+            data-url="https://github.com/{{systemRepo}}/releases/tag/{{systemLatestVersion}}"
+            data-tooltip="Open release notes for v{{systemLatestVersion}}">
+            <i class="fa-solid fa-book-open"></i> Changelog
+          </button>
+          <button type="button" class="dh-bm-system-support-btn" data-action="openSupport"
+            data-repo="{{systemRepo}}"
+            data-url="https://github.com/{{systemRepo}}"
+            data-module-title="Daggerheart System"
+            data-tooltip="Report an issue with the Daggerheart system">
+            <i class="fa-solid fa-life-ring"></i> Support
+          </button>
+        {{else if systemLatestVersion}}
+          <span class="dh-bm-badge system-ok" data-tooltip="Daggerheart system is up to date">
+            <i class="fa-solid fa-circle-check"></i> v{{systemInstalledVersion}} — up to date
+          </span>
+          <button type="button" class="dh-bm-system-support-btn" data-action="openSupport"
+            data-repo="{{systemRepo}}"
+            data-url="https://github.com/{{systemRepo}}"
+            data-module-title="Daggerheart System"
+            data-tooltip="Report an issue with the Daggerheart system">
+            <i class="fa-solid fa-life-ring"></i> Support
+          </button>
+        {{else}}
+          <span class="dh-bm-badge system-unknown" data-tooltip="Could not check Daggerheart system version">
+            <i class="fa-solid fa-circle-question"></i> v{{systemInstalledVersion}} — status unknown
+          </span>
+          <button type="button" class="dh-bm-system-support-btn" data-action="openSupport"
+            data-repo="{{systemRepo}}"
+            data-url="https://github.com/{{systemRepo}}"
+            data-module-title="Daggerheart System"
+            data-tooltip="Report an issue with the Daggerheart system">
+            <i class="fa-solid fa-life-ring"></i> Support
+          </button>
+        {{/if}}
+      </div>
+    </div>
+
+  </header>
+
+  {{!-- Scrollable module list --}}
+  <div class="dh-bm-scroll">
+
+    {{!-- Must Have section --}}
+    {{#if mustHave.length}}
+      <div class="dh-bm-category must-have">
+        <h3 class="dh-bm-category-title"><i class="fa-solid fa-star"></i> Must Have</h3>
+        <ul class="dh-bm-list">
+          {{#each mustHave}}
+            {{> dh-bm-module-row}}
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+
+    {{!-- Recommended section --}}
+    {{#if recommended.length}}
+      <div class="dh-bm-category recommended">
+        <h3 class="dh-bm-category-title"><i class="fa-solid fa-thumbs-up"></i> Recommended</h3>
+        <ul class="dh-bm-list">
+          {{#each recommended}}
+            {{> dh-bm-module-row}}
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+
+    {{!-- Third Party — Daggerheart section --}}
+    {{#if thirdPartyDH.length}}
+      <div class="dh-bm-category third-party-dh">
+        <h3 class="dh-bm-category-title"><i class="fa-solid fa-dragon"></i> Third Party — Daggerheart</h3>
+        <ul class="dh-bm-list">
+          {{#each thirdPartyDH}}
+            {{> dh-bm-module-row}}
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+
+    {{!-- Third Party section --}}
+    {{#if thirdParty.length}}
+      <div class="dh-bm-category third-party">
+        <h3 class="dh-bm-category-title"><i class="fa-solid fa-puzzle-piece"></i> Third Party</h3>
+        <ul class="dh-bm-list">
+          {{#each thirdParty}}
+            {{> dh-bm-module-row}}
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+
+    {{!-- Empty state --}}
+    {{#unless mustHave.length}}
+      {{#unless recommended.length}}
+        {{#unless thirdPartyDH.length}}
+          {{#unless thirdParty.length}}
+            <div class="dh-bm-empty">
+              <i class="fa-solid fa-check-double"></i>
+              <p>All recommended modules are installed!</p>
+            </div>
+          {{/unless}}
+        {{/unless}}
+      {{/unless}}
+    {{/unless}}
+
+  </div>
+
+</section>
