@@ -1,3 +1,7 @@
+# 0.0.7
+
+- Added https://github.com/brunocalado/dh-unidentified
+
 # 0.0.6
 
 ## [Fixed]

@@ -214,6 +214,15 @@ export const MODULES = [
     manifest: "https://raw.githubusercontent.com/brunocalado/the-void-unofficial/main/module.json",
     category: CATEGORY.RECOMMENDED
   },
+  {
+    id: "dh-unidentified",
+    title: "Unidentified Items",
+    icon: "\u{1F3AD}",
+    description: "Hide items from your players behind masked names and icons, then reveal them via Identify Rolls. Request a roll from a specific player with custom traits and difficulty — on success, the item reveals its true identity; on failure, it stays disguised. Perfect for mysteries, cursed loot, and plot twists.",
+    repo: "brunocalado/dh-unidentified",
+    manifest: "https://raw.githubusercontent.com/brunocalado/dh-unidentified/main/module.json",
+    category: CATEGORY.RECOMMENDED
+  },
 
   /* ---------------------------------------- */
   /*  Third Party                             */
