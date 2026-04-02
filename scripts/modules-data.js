@@ -25,8 +25,7 @@ export const DAGGERHEART_SYSTEM_REPO = "Foundryborne/daggerheart";
 export const CATEGORY = {
   MUST_HAVE: "must-have",
   RECOMMENDED: "recommended",
-  THIRD_PARTY_DH: "third-party-dh",
-  THIRD_PARTY: "third-party"
+  THIRD_PARTY_DH: "third-party-dh"
 };
 
 /**
@@ -237,16 +236,6 @@ export const MODULES = [
     category: CATEGORY.THIRD_PARTY_DH
   },
   {
-    id: "chat-media",
-    title: "Chat Media",
-    icon: "\u{1F4F7}",
-    description: "Allows images, videos, and audio files to be embedded directly in Foundry chat messages — useful for sharing scene art, handouts, or mood clips with players without leaving the chat panel.",
-    repo: "p4535992/foundryvtt-chat-media",
-    manifest: "https://raw.githubusercontent.com/p4535992/foundryvtt-chat-media/main/module.json",
-    useReleasesApi: true,
-    category: CATEGORY.THIRD_PARTY
-  },
-  {
     id: "daggerheart-hud",
     title: "Daggerheart HUD",
     icon: "\u{1F3AE}",
@@ -263,36 +252,6 @@ export const MODULES = [
     repo: "mordachai/art-for-daggerheart",
     manifest: "https://raw.githubusercontent.com/mordachai/art-for-daggerheart/main/module.json",
     category: CATEGORY.THIRD_PARTY_DH
-  },
-  {
-    id: "dice-tray",
-    title: "Dice Tray",
-    icon: "\u{1FA84}",
-    description: "Places a clickable dice palette just below the chat box. Click any die face to roll it instantly without typing a formula — handy for quick rolls and for players who prefer not to use chat commands.",
-    repo: "mclemente/fvtt-dice-tray",
-    manifest: "https://raw.githubusercontent.com/mclemente/fvtt-dice-tray/main/module.json",
-    useReleasesApi: true,
-    category: CATEGORY.THIRD_PARTY
-  },
-  {
-    id: "permission_viewer",
-    title: "Ownership Viewer",
-    icon: "\u{1F441}",
-    description: "Adds a small panel to the sidebar that shows which users have Owner, Observer, or Limited access to each document. Makes it easy to confirm at a glance that players can see exactly what they should — no more hunting through permission dialogs.",
-    repo: "mclemente/fvtt-ownership-viewer",
-    manifest: "https://raw.githubusercontent.com/mclemente/fvtt-ownership-viewer/main/module.json",
-    useReleasesApi: true,
-    category: CATEGORY.THIRD_PARTY
-  },
-  {
-    id: "vtta-tokenizer",
-    title: "Tokenizer",
-    icon: "\u{1F9D9}",
-    description: "A token editor built into Foundry. Layer a character portrait over a ring frame, apply masks, adjust scale and position, and export the result directly as a token image — no external image editing software needed.",
-    repo: "mrprimate/tokenizer",
-    manifest: "https://raw.githubusercontent.com/mrprimate/tokenizer/main/module.json",
-    useReleasesApi: true,
-    category: CATEGORY.THIRD_PARTY
   },
   {
     id: "martial-adversaries-for-daggerheart",
@@ -381,24 +340,6 @@ export const MODULES = [
     useReleasesApi: true,
     category: CATEGORY.THIRD_PARTY_DH
   },
-  {
-    id: "timeline-builder",
-    title: "Timeline Builder",
-    icon: "\u{23F3}",
-    description: "A module for creating and managing campaign timelines.",
-    repo: "brunocalado/timeline-builder",
-    manifest: "https://raw.githubusercontent.com/brunocalado/timeline-builder/main/module.json",
-    category: CATEGORY.THIRD_PARTY
-  },
-  {
-    id: "group-tokens",
-    title: "Group Tokens",
-    icon: "\u{1FAB9}",
-    description: "Easily collapse groups of tokens into a single token and vice versa — useful for representing parties or formations.",
-    repo: "brunocalado/group-tokens",
-    manifest: "https://raw.githubusercontent.com/brunocalado/group-tokens/main/module.json",
-    category: CATEGORY.THIRD_PARTY
-  }
 ];
 
 /**
