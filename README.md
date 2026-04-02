@@ -138,21 +138,6 @@ Community content built specifically for the Daggerheart system:
 
 ---
 
-## Third-Party Modules
-
-General-purpose community modules that work well alongside any Daggerheart setup:
-
-| Module | What It Does |
-|---|---|
-| 📷 **Chat Media** | Embed images, videos, and audio directly in Foundry chat messages |
-| 🪄 **Dice Tray** | Clickable dice palette below the chat box — no commands required |
-| 👁️ **Ownership Viewer** | Shows at a glance which players can see which documents |
-| 🧙 **Tokenizer** | Build token images from portraits inside Foundry, no external editor needed |
-| ⏳ **Timeline Builder** | Create and manage campaign timelines |
-| 🪲 **Group Tokens** | Collapse groups of tokens into a single token and back — useful for parties or formations |
-
----
-
 ## Update Notifications
 
 On every world load, the dashboard automatically checks GitHub for updates to all recommended modules. If any updates are found, a notification panel opens.
