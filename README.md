@@ -60,7 +60,7 @@ The panel is divided into four sections:
 |---|---|
 | **Must Have** | Core modules that significantly improve every session |
 | **Recommended** | Modules worth adding once you're comfortable with the basics |
-| **Third Party — Daggerheart** | Community content built specifically for Daggerheart: adventures, content packs, and DH-specific tools |
+| **Extras** | Community content built specifically for Daggerheart: adventures, content packs, and DH-specific tools |
 | **Third Party** | General-purpose community modules that pair well with Daggerheart |
 
 Each module card shows its current installed version, the latest available version, and action buttons to **install**, **enable**, or **copy the manifest URL**. Non-third-party modules also include a **Changelog** button to read what changed without leaving Foundry.
@@ -114,10 +114,12 @@ Once you have the essentials running, these add cinematic and quality-of-life up
 | 🧠 **Stats Toolbox** | Paste a plain-text statblock and generate a fully populated Foundry actor instantly |
 | 💠 **Custom Stat Tracker** | Add any custom resource tracker to an actor sheet — homebrew counters, conditions, anything |
 | 🌀 **The Void (Unofficial)** | Adds full Void mechanics tracking and compendium content for dark campaigns |
+| 🧟 **Horde** | Explode single horde tokens into dozens of individual tokens and manage their movement and stats automatically |
+| 🎭 **Unidentified Items** | Hide items behind masked names and icons, then reveal them via Identify Rolls with custom difficulty and traits |
 
 ---
 
-## Third-Party — Daggerheart Modules
+## Extras
 
 Community content built specifically for the Daggerheart system:
 

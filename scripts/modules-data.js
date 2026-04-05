@@ -222,9 +222,18 @@ export const MODULES = [
     manifest: "https://raw.githubusercontent.com/brunocalado/dh-unidentified/main/module.json",
     category: CATEGORY.RECOMMENDED
   },
+  {
+    id: "dh-horde",
+    title: "Horde",
+    icon: "\u{1F9DF}",
+    description: "Explode single horde tokens into dozens of individual tokens and manage their movement and stats automatically.",
+    repo: "brunocalado/dh-horde",
+    manifest: "https://raw.githubusercontent.com/brunocalado/dh-horde/main/module.json",
+    category: CATEGORY.RECOMMENDED
+  },
 
   /* ---------------------------------------- */
-  /*  Third Party                             */
+  /*  Extras                                  */
   /* ---------------------------------------- */
   {
     id: "daggerheart-gm-hud",
