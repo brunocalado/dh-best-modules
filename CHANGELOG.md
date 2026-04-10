@@ -1,3 +1,7 @@
+# 0.1.0
+
+- https://github.com/brunocalado/dh-colossus
+
 # 0.0.9
 
 - https://github.com/brunocalado/dh-horde

@@ -349,6 +349,15 @@ export const MODULES = [
     useReleasesApi: true,
     category: CATEGORY.THIRD_PARTY_DH
   },
+  {
+    id: "dh-colossus",
+    title: "Colossus",
+    icon: "\u{1F5FF}",
+    description: "Manage Colossus encounters — multi-part boss creatures with independent HP per part, shared stress, and a visual part map you can show your players.",
+    repo: "brunocalado/dh-colossus",
+    manifest: "https://raw.githubusercontent.com/brunocalado/dh-colossus/main/module.json",
+    category: CATEGORY.THIRD_PARTY_DH
+  },
 ];
 
 /**
