@@ -336,6 +336,16 @@ export const MODULES = [
     manifest: "https://raw.githubusercontent.com/brunocalado/dh-colossus/main/module.json",
     category: CATEGORY.THIRD_PARTY_DH
   },
+  {
+    id: "daggerheart-compact-sheets",
+    title: "Compact Sheets",
+    icon: "\u{1F4CB}",
+    description: "Compact, adaptive character sheets for the Foundryborne Daggerheart system. Offers a minimalist layout with quick access to the essentials — Hope, HP, Stress, and Inventory — without opening the full default sheet.",
+    repo: "Oxy949/daggerheart-compact-sheets",
+    manifest: "https://github.com/Oxy949/daggerheart-compact-sheets/releases/latest/download/module.json",
+    useReleasesApi: true,
+    category: CATEGORY.THIRD_PARTY_DH
+  },
 ];
 
 /**

@@ -1,3 +1,16 @@
+# 0.1.1
+
+## [Added]
+- Added `daggerheart-compact-sheets` (Oxy949) to the Extras list
+
+## [Fixed]
+- Third Party category constant was undefined, causing the "Third Party" section to never render in the dashboard
+
+## [Changed]
+- Extracted all shared constants into `scripts/constants.js` as a dependency-free leaf
+- CSS scoped entirely under `.dh-best-modules` using native nesting; stylesheet renamed to `modules-list-app.css`
+- Dialog windows (install, changelog) now carry the module scope class so their styles apply correctly
+
 # 0.1.0
 
 - https://github.com/brunocalado/dh-colossus
