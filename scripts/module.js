@@ -1,4 +1,5 @@
-import { MODULE_ID, DAGGERHEART_SYSTEM_REPO, IgnoredUpdatesModel } from "./modules-data.js";
+import { MODULE_ID, DAGGERHEART_SYSTEM_REPO } from "./constants.js";
+import { IgnoredUpdatesModel } from "./modules-data.js";
 import { ModulesListApp } from "./modules-app.js";
 
 /**
@@ -72,7 +73,7 @@ function registerSettings() {
 
 /**
  * Loads the module-row Handlebars partial so the main template can reference it.
- * Uses the V13 namespaced API `foundry.applications.handlebars.loadTemplates` to register the partial automatically.
+ * Uses the V14 namespaced API `foundry.applications.handlebars.loadTemplates` to register the partial automatically.
  * Triggered during the "init" Foundry Hook.
  * @returns {Promise<void>}
  */

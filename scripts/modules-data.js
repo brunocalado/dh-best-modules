@@ -4,29 +4,7 @@
  * @module modules-data
  */
 
-export const MODULE_ID = "dh-best-modules";
-
-/**
- * GitHub repository path for this module itself.
- * Used to build changelog and support links for the self-entry in the dashboard.
- */
-export const SELF_REPO = "brunocalado/dh-best-modules";
-
-/**
- * GitHub repository path for the Foundryborne Daggerheart system.
- * Used to query the GitHub Releases API for the latest system version.
- */
-export const DAGGERHEART_SYSTEM_REPO = "Foundryborne/daggerheart";
-
-/**
- * Category constants for module classification.
- * @enum {string}
- */
-export const CATEGORY = {
-  MUST_HAVE: "must-have",
-  RECOMMENDED: "recommended",
-  THIRD_PARTY_DH: "third-party-dh"
-};
+import { CATEGORY } from "./constants.js";
 
 /**
  * @typedef {object} ModuleEntry

@@ -1,18 +1,19 @@
 {
   "id": "dh-best-modules",
   "title": "👑 Best Modules for Daggerheart",
-  "version": "0.1.0",
+  "version": "0.1.1",
 
   "description": "A personal selection of useful modules for DH. Helps players discover and manage a curated list of community tools, tracking updates and installation status in one place.",
 
   "compatibility": {
-    "minimum": 13,
-    "verified": 13,
-    "maximum": 13
+    "minimum": 14,
+    "verified": 14
   },
+  
   "authors": [
     {
       "name": "Mestre Digital",
+      "url": "http://youtube.com/@mestredigital",
       "flags": {}
     }
   ],
@@ -23,7 +24,7 @@
         "id": "daggerheart",
         "type": "system",
         "compatibility": {
-          "minimum": "1.9.0"
+          "minimum": "2.3.2"
         }
       }
     ],
@@ -41,7 +42,7 @@
   },
 
   "esmodules": ["scripts/module.js"],
-  "styles": ["styles/style.css"],
+  "styles": ["styles/modules-list-app.css"],
 
   "url": "https://github.com/brunocalado/dh-best-modules",
   "manifest": "https://raw.githubusercontent.com/brunocalado/dh-best-modules/main/module.json",

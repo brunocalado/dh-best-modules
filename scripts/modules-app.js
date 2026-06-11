@@ -1,4 +1,5 @@
-import { MODULE_ID, MODULES, CATEGORY, SELF_REPO, DAGGERHEART_SYSTEM_REPO } from "./modules-data.js";
+import { MODULE_ID, CATEGORY, SELF_REPO, DAGGERHEART_SYSTEM_REPO } from "./constants.js";
+import { MODULES } from "./modules-data.js";
 
 /**
  * In-memory cache for remote version lookups.
@@ -325,6 +326,7 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
 
     // Opens the built-in Foundry module installer with the manifest pre-filled
     new foundry.applications.api.Dialog({
+      classes: ["dh-best-modules"],
       window: { title: "Install Module" },
       content: `<p>Copy this manifest URL and paste it in the <strong>Install Module</strong> dialog (Configuration > Add-on Modules > Install Module):</p>
         <input type="text" class="dh-bm-manifest-input" value="${manifest}" readonly>`,
@@ -376,19 +378,6 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
     await game.settings.set("core", "moduleConfiguration", activeModules);
     ui.notifications.info(`${mod.title} has been enabled. The world will reload.`);
     foundry.utils.debouncedReload();
-  }
-
-  /**
-   * Action handler: copies a module's manifest URL to the clipboard.
-   * @param {PointerEvent} event - The click event
-   * @param {HTMLElement} target - The button element with data-manifest attribute
-   * @returns {void}
-   */
-  static onCopyManifest(event, target) {
-    const manifest = target.dataset.manifest;
-    if (!manifest) return;
-    navigator.clipboard.writeText(manifest);
-    ui.notifications.info("Manifest URL copied to clipboard!");
   }
 
   /**
@@ -471,6 +460,7 @@ export class ModulesListApp extends foundry.applications.api.HandlebarsApplicati
       const htmlContent = ModulesListApp._formatChangelog(content);
 
       new foundry.applications.api.Dialog({
+        classes: ["dh-best-modules"],
         window: { title: `${moduleTitle} - Changelog` },
         content: `<div class="dh-bm-changelog">${htmlContent}</div>`,
         buttons: [

@@ -4,6 +4,8 @@
 
 Install this and instantly know which modules will make your Daggerheart sessions on Foundry VTT faster, smoother, and more cinematic — no searching, no guesswork.
 
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Donate-red?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/mestredigital)
+
 ---
 
 ## About this repository
